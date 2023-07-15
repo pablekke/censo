@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Obligatorio</title>
+    <link rel="stylesheet" id="modos" href="css/estiloClaro.css">
+    <script src="js/datosIniciales.js"></script>
+    <script src="js/clases.js"></script>
+    <script src="js/libreria.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <!----------------------------------------------------------------------------------------------------->
+    <nav>
+        <input type="button" value="Perfil censista" id="btnPerfilCensista">
+        <input type="button" value="Perfil invitado" id="btnPerfilInvitado">
+        <input type="button" value="Cambiar modo" id="btnModo">
+        <hr>
+    </nav>
+    <!----------------------------------------------------------------------------------------------------->
+    <div id="ingresarDiv" style="display: none;">
+        <h2>Perfil censista</h2>
+        <h3>Ingresar</h3>
+        <h6 style="color: rgb(185, 58, 58);">*Todos los campos son obligatorios*</h6>
+        <form id="ingresarForm">
+            <label for="usuario">Usuario</label>
+            <input type="text" placeholder="Ingresar usuario" id="usuario">
+            <br>
+            <label for="contraseña">Contraseña</label>
+            <input type="password" placeholder="Ingresar contraseña" id="contraseña">
+            <br>
+            <input type="button" value="Ingresar" id="btnIngresar">
+            <input type="button" value="Registrarse" id="btnRegistrarseDiv">
+        </form>
+        <p id="pIngresar"></p>
+        <hr>
+    </div>
+    <!----------------------------------------------------------------------------------------------------->
+    <div id="registrarDiv" style="display: none;">
+        <h3>Registrar</h3>
+        <h6 style="color: rgb(185, 58, 58);">*Todos los campos son obligatorios*</h6>
+        <form id="registrarForm">
+            <label for="nombreCrear">Nombre</label>
+            <input type="text" placeholder="Ingresar nombre" id="nombreCrear">
+            <br>
+            <label for="usuarioCrear">Usuario</label>
+            <input type="text" placeholder="Ingresar usuario" id="usuarioCrear">
+            <br>
+            <label for="passCrear">Contraseña</label>
+            <input type="password" placeholder="Ingresar contraseña" id="passCrear">
+            <br>
+            <input type="button" value="Registrar" id="btnRegistrar">
+        </form>
+        <p id="pRegistro" style="color: rgb(185, 58, 58);"></p>
+        <p>La contraseña debe tener mínimo:</p>
+        <ul>
+            <li>5 caracteres</li>
+            <li>Una mayúscula</li>
+            <li>Una minúscula</li>
+            <li>Un número</li>
+        </ul>
+        <hr>
+    </div>
+    <!----------------------------------------------------------------------------------------------------->
+    <div id="ingresarCedulaDiv">
+        <h2 id="textPerfilInvitado"></h2>
+        <h3>Ingresar cédula</h3>
+        <p>Ingrese la cédula sin puntos ni guiones.</p>
+        <form id="cedulaForm">
+            <label for="cedula">Cédula</label>
+            <input type="text" placeholder="Ingresar cédula" id="cedula">
+            <br>
+            <input type="button" value="Ingresar" id="btnCedula">
+            <br>
+            <input type="button" value="Ver lista de censados" id="btnListaCensados">
+        </form>
+        <p id="pIngresarCedula"></p>
+        <hr>
+    </div>
+    <!----------------------------------------------------------------------------------------------------->
+    <div id="listaCensadosInvitadosDiv" style="display: none;">
+        <table id="listaCensadosInvitados" border="2px"></table>
+        <hr>
+    </div>
+    <!----------------------------------------------------------------------------------------------------->
+    <div id="censoDiv" class="styled-select" style="display: none;">
+        <h2>Censo</h2>
+        <h3>Usuario censado: <span id="cedulaCensado"><span></h3>
+        <h6 style="color :rgb(185, 58, 58);">*Todos los campos son obligatorios*</h6>
+        <form id="censoForm">
+            <label for="nombreCensado">Nombre</label>
+            <input type="text" placeholder="Ingrese nombre" id="nombreCensado">
+            <br>
+            <label for="apellidoCensado">Apellido</label>
+            <input type="text" placeholder="Ingresar apellido" id="apellidoCensado">
+            <br>
+            <label for="edadCensado">Edad</label>
+            <input type="number" id="edadCensado" placeholder="Edad" min="0" max="130">
+            <br>
+            <label for="departamentos">Departamento de residencia</label>
+            <select id="departamentos"></select>
+            <br><br>
+            <label for="ocupaciones">Ocupación</label>
+            <select id="ocupaciones"></select>
+            <br>
+            <input type="button" value="Guardar datos" id="btnAgregarDatosCenso">
+            <input type="button" value="Eliminar datos" id="btnEliminarDatosCenso">
+        </form>
+        <p id="formulario" style="color :rgb(185, 58, 58);"></p>
+        <hr>
+    </div>
+    <!----------------------------------------------------------------------------------------------------->
+    <div id="perfilCensistaDiv" style="display: none;">
+        <h3>Perfil censista</h3>
+        <input type="button" value="Censar persona" id="btnCensarPersona">
+        <br>
+        <input type="button" value="Validar Personas" id="btnValidarPersonas">
+        <br>
+        <input type="button" value="Reasignar persona para validar" id="btnReasignarValidar">
+        <br>
+        <input type="button" value="Visualizar información estadística" id="btnEstadisticas">
+        <br>
+        <input type="button" value="Cerrar sesión" id="btnCerrarSesion">
+        <hr>
+    </div>
+    <!----------------------------------------------------------------------------------------------------->
+    <div id="validarPersonasDiv" class="styled-select" style="display: none;">
+        <h2>Validar Personas</h2>
+        <label for="cedulasParaValidar">Seleccione una cédula a validar</label>
+        <form id="validarPersonasForm">
+            <select id="cedulasParaValidar"></select><br><br>
+            <input type="button" value="Ver formulario" id="btnVerFormulario">
+        </form>
+        <p id="pValidarPersona" style="color: rgb(185, 58, 58);"></p>
+    </div>
+    <!----------------------------------------------------------------------------------------------------->
+    <div id="reasignarDiv" class="styled-select" style="display: none;">
+        <h3>Reasignar personas</h3>
+        <form id="reasignarForm">
+            <label for="selectDeCedulasAvalidar">Cédula</label>
+            <select id="selectDeCedulasAvalidar"></select>
+            <br>
+            <label for="selectCensistas">Censista</label>
+            <select id="selectCensistas"></select>
+            <br>
+            <input type="button" value="Reasignar" id="btnReasignar">
+        </form>
+        <p id="reasignarError" style="color: rgb(185, 58, 58);"></p>
+        <hr>
+    </div>
+    <!----------------------------------------------------------------------------------------------------->
+    <div id="estadisticasCensistaDiv" class="styled-select" style="display: none;">
+        <h3>Estadísticas</h3>
+        <p id="censadoEstadistica"></p>
+        <p>Falta el <span id="pendientesEstadistica"></span>% del total de personas por validar.</p>
+        <label for="departamentosEstadisticas">Seleccione un departamento para ver el porcentaje de mayores y menores de edad.</label>
+        <form id="estadisticasForm">
+            <select id="departamentosEstadisticas"></select>
+            <input type="button" value="Ver" id="btnVerMayoresMenores">
+        </form>
+        <p id="mayoresYMenores" style="color: rgb(185, 58, 58);"></p>
+    </div>
+    <!----------------------------------------------------------------------------------------------------->
+    <div id="listaCensadosCensitaDiv" style="display: none;">
+        <form id="listaCensadosCensitaForm">
+            <input type="button" value="Mostrar personas censadas" id="btnMostrarPersonasCensadas">
+            <table id="tablaEstadisticas" border="1px"></table>
+        </form>
+        <hr>
+    </div>
+</body>
+
+</html>
